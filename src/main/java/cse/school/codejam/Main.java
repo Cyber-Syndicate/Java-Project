@@ -48,8 +48,9 @@ public class Main {
                         System.out.println("Invalid option.");
                 }
             } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
-            }
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Press Enter to continue...");
+            inputUtil.readString("");}
             System.out.println();
         }
     }

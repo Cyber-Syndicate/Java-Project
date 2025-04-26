@@ -27,14 +27,15 @@ public class BankAccount {
     }
 
     public double getBalance() {
-        return 0.0;
+        return balance;
+
     }
 
     public String getAccountDetails() {
         return "Account Number: " + accountNumber + ", Holder: " + accountHolderName + ", Balance: " + String.format("%.2f", balance);
     }
 
-    public String getAccountNumber() {
+    public String return accountNumber; {
         return "accountNumber";
     }
 

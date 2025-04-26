@@ -10,8 +10,13 @@ public class AccountRepository {
     }
 
     public void addAccount(BankAccount account) {
-        if (account == null || accountExists(account.getAccountNumber())) {
-            throw new IllegalArgumentException("Invalid or existing account.");
+        if (account == null) {
+    throw new IllegalArgumentException("Account cannot be null.");
+}
+       if (accountExists(account.getAccountNumber())) {
+    throw new IllegalArgumentException("Account already exists.");
+}
+
         }
         accounts.put(account.getAccountNumber(), account);
     }
@@ -31,7 +36,9 @@ public class AccountRepository {
     }
 
     public Collection<BankAccount> getAllAccounts() {
-        return accounts.values();
+    return Collections.unmodifiableCollection(accounts.values());
+}
+
     }
 
     public int getTotalAccounts() {
