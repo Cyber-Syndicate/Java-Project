@@ -24,8 +24,10 @@ public class Transaction {
     }
 
     public Transaction setAmount(double amt) {
-        if (amt == 0) throw new IllegalArgumentException("Amount must be positive.");
-        this.amount = amt; return this;
+    if (amt <= 0) throw new IllegalArgumentException("Amount must be greater than zero.");
+    this.amount = amt; 
+    return this;
+
     }
 
     public String getTransactionDetails() {
