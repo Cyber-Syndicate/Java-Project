@@ -9,12 +9,16 @@ public class AccountRepository {
         return accounts.containsKey(accountNumber);
     }
 
-    public void addAccount(BankAccount account) {
-        if (account == null) {
-    throw new IllegalArgumentException("Account cannot be null.");
+   public void addAccount(BankAccount account) {
+    if (account == null) {
+        throw new IllegalArgumentException("Account cannot be null.");
+    }
+    if (accountExists(account.getAccountNumber())) {
+        throw new IllegalArgumentException("Account already exists.");
+    }
+    accounts.put(account.getAccountNumber(), account);  // Now inside the method
 }
-       if (accountExists(account.getAccountNumber())) {
-    throw new IllegalArgumentException("Account already exists.");
+
 }
 
         }

@@ -1,6 +1,5 @@
 package cse.school.codejam;
-
-public class BankAccount {
+{public class BankAccount {
     private final String accountNumber;
     private final String accountHolderName;
     private double balance;
@@ -22,8 +21,12 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if (amount <= 0 || amount > balance) throw new IllegalArgumentException("Invalid withdrawal.");
-        balance += amount;
+    if (amount <= 0 || amount > balance) {
+        throw new IllegalArgumentException("Invalid withdrawal.");
+    }
+    balance -= amount;  // Subtract the withdrawal amount from balance
+}
+
     }
 
     public double getBalance() {
@@ -35,9 +38,8 @@ public class BankAccount {
         return "Account Number: " + accountNumber + ", Holder: " + accountHolderName + ", Balance: " + String.format("%.2f", balance);
     }
 
-    public String return accountNumber; {
-        return "accountNumber";
-    }
+    
+    
 
     public void setAccountHolderName(String name) {
         if (name == null || name.isEmpty()) throw new IllegalArgumentException("Name cannot be empty.");
