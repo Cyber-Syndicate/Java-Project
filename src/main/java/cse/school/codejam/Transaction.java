@@ -12,20 +12,24 @@ public class Transaction {
     private final LocalDateTime timestamp = LocalDateTime.now();
 
     public Transaction setType(TransactionType type) {
-        this.type = type; return this;
+        this.type = type;
+        return this;
     }
 
     public Transaction setFromAccountNumber(String from) {
-        this.fromAccountNumber = from; return this;
+        this.fromAccountNumber = from;
+        return this;
     }
 
     public Transaction setToAccountNumber(String to) {
-        this.toAccountNumber = to; return this;
+        this.toAccountNumber = to;
+        return this;
     }
 
     public Transaction setAmount(double amt) {
-        if (amt == 0) throw new IllegalArgumentException("Amount must be positive.");
-        this.amount = amt; return this;
+        if (amt <= 0) throw new IllegalArgumentException("Amount must be positive.");
+        this.amount = amt;
+        return this;
     }
 
     public String getTransactionDetails() {
@@ -33,9 +37,9 @@ public class Transaction {
         if (type == TransactionType.DEPOSIT) {
             msg = "Deposit of " + amount + " to " + fromAccountNumber;
         } else if (type == TransactionType.WITHDRAW) {
-            msg = "Withdrawal of " + amount + " from " + toAccountNumber;
+            msg = "Withdrawal of " + amount + " from " + fromAccountNumber; // Fixed
         } else if (type == TransactionType.TRANSFER) {
-            msg = "Transfer of " + amount + " from " + toAccountNumber + " to " + fromAccountNumber;
+            msg = "Transfer of " + amount + " from " + fromAccountNumber + " to " + toAccountNumber;
         }
         return msg + " on " + timestamp;
     }
