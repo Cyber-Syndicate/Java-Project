@@ -31,7 +31,9 @@ public class AccountRepository {
     }
 
     public Collection<BankAccount> getAllAccounts() {
-        return accounts.values();
+    return Collections.unmodifiableCollection(accounts.values());
+}
+
     }
 
     public int getTotalAccounts() {
